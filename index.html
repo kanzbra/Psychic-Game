@@ -37,9 +37,60 @@
         <div id="Box4">
             <p>Your Guesses So Far: </p>
         </div>
+        </div>
 
+        
+      <script type ="text/javascript">
+    
+    
+        var wins= 0;
+        var losses= 0;
+        var guessesLeft= 0;
+        var guessesSoFar = []; 
+        var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ]
+        
+    
+        
 
-        <script src="assets/javascript/game.js"></script>
-        </body>
-
+        document.onkeyup = function(event) {
+            var userGuess = event.key;
+            var letterGuess = letters[Math.floor(Math.random()*letters.length)]; 
+            guessesSoFar.push(userGuess); 
+            if (userGuess == letterGuess) {
+                userGuess.
+                wins++;
+                alert('YASSSSS! You have guesesed corrrectly. You Won....nothing...just a pat on the back!');
+                guessesLeft = 5; 
+                guessesSoFar.length = 0; 
+            }
+            else if (guessesLeft == 0){
+                losses++;
+                alert('You did not guess the correct letter. You lost loser. Try again.');
+                guessesLeft = 5;
+                guessesSoFar.length = 0;
+            }
+            else if (userGuess !== letterGuess){
+                guessesLeft--;
+            }  
+             
+            var html = "<h1>The Psychic Game</h1>" + 
+            "<p>Guess the Letter!</p>" +
+            "<p>Total Wins: " + 
+            wins + 
+            "</p>" +
+            "<p>Total Losses: " + 
+            losses + 
+            "</p>" +
+            "<p>Guesses Left: " + 
+            guessesLeft + 
+            "</p>" +
+            "<p>Your Guesses so far: " +
+            guessesSoFar +
+            "</p>"
+            ;
+          
+            document.querySelector('#greeting').innerHTML = html;
+        }
+</script>   
+</body>
 </html>

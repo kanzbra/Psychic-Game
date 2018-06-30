@@ -1,32 +1,26 @@
-var wins= 0;
-var losses= 0;
-var guessesLeft= 0;
-var guessesSoFar = []; 
-var letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ]
-
-
 document.onkeyup = function(event) {
-    var userGuess = String.fromCharCode(event.keyCode).toLowerCase(); 
-    var letters = letters[Math.floor(Math.random()*letters.length)]; 
-    guessesSoFar.push(userGuess); 
+    var userGuess = event.key; //taking in user guess
+    var letterGuess = letters[Math.floor(Math.random()*letters.length)]; //computer selects random letter
+    guessesSoFar.push(userGuess); //pushing user guess to guesses so far
     if (userGuess == letterGuess) {
+        userGuess.
         wins++;
         alert('YASSSSS! You have guesesed corrrectly. You Won....nothing...just a pat on the back!');
-        guessesLeft = 5; 
-        guessesSoFar.length = 0; 
+        guessesLeft = 5; //reseting the guesses back to 9 so that the user can play again
+        guessesSoFar.length = 0; //this removes everything from the guesses so far array, so that the guesses from the previous round don't show
     }
     else if (guessesLeft == 0){
         losses++;
-        alert('You didn\'t guess the correct letter. You lost. Let\'s try again.');
-        guessesLeft = 9;
+        alert('You did not guess the correct letter. You lost loser. Try again.');
+        guessesLeft = 5;
         guessesSoFar.length = 0;
     }
     else if (userGuess !== letterGuess){
-        guessesLeft--; 
+        guessesLeft--; //decrementing the guesses left
     }  
-    
+    // Taking the tallies and displaying them in HTML    
     var html = "<h1>The Psychic Game</h1>" + 
-    "<p>Guess what letter I'm thinking of!</p>" +
+    "<p>Guess the Letter!</p>" +
     "<p>Total Wins: " + 
     wins + 
     "</p>" +
@@ -40,6 +34,6 @@ document.onkeyup = function(event) {
     guessesSoFar +
     "</p>"
     ;
-   
-    document.querySelector('#game').innerHTML = html;
+    // Placing the html into the game ID
+    document.querySelector('#greeting').innerHTML = html;
 }
