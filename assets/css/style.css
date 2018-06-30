@@ -1,0 +1,39 @@
+html {
+    box-sizing: border-box;
+    font-family: 'Bigelow Rules', cursive;
+    font-size: 40px;
+}
+
+body{
+   background: url(psychic.jpg);
+   background-position: center;
+   background-size:cover;
+   background-repeat: no-repeat;
+   height: 110vh;
+}
+
+
+#greeting {
+    text-align: center;
+    color: whitesmoke;
+    
+}
+
+
+h1{
+    font-family: 'Bigelow Rules', cursive;
+    font-size: 80px;
+
+}
+h3{
+    font-family: 'Bigelow Rules', cursive;
+    font-size: 60px;
+
+}
+
+#main {
+    font-family: 'Bigelow Rules', cursive;
+    font-size: 30px;
+  }
+
+  
